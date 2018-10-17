@@ -1,0 +1,84 @@
+/*
+Android Studio
+Al inicio dar click en start new project
+después nos aparece la configuración del SDK
+
+API 15: Android 4.0.3 (IceCreamSandwich)
+API 21: Android 5.0 (Lollipop)
+
+Una activity va a ser un script en la pantalla. Son pantallas prescritas que ya tienen integradas
+botones, full screen activity (pantalla completa, hacer un splash que es la pantalla de inicio de la aplicación), login
+de activities, masterDetailFlow, scroll activiy, settings activity o tabled activity.
+
+
+
+Cuando queramos probar en dispositivo, ir a ajustes, después a acerca de, le damos 7 veces click número de compilación
+después le damos click, nos aparece una opción llamada opciones de desarrollador, y activamos la opción de depuración por
+USB.
+*/
+
+/*Lo que viene después del package es el dominio*/
+/*un package es una colección de clases*/
+package com.example.marco.ejemplocm;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle; //Bundle nos sirve para pasar información de una actividad a otra
+
+public class MainActivity extends AppCompatActivity{
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState){
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main); /*Conexión del xml con el código que hará funcionar al programa. R -> carpeta
+    res. */
+  }/*Todo lo que queramos hacer al iniciar la actividad lo ponemos en el método onCreate, super es la clase padre,
+  dentro de la clase padre estamos llamando al método onCreate*/
+
+  public void mensaje(View v){ //presionamos alt enter después de escribir esto y se debe de quitar lo rojito en view
+    Toast.makeText(this, "Gracias por presionarme", Toast.LENGTH_LONG).show(); //Hay dos makeText, uno hace enteros y el otro strings
+    //El LENGTH_LONG es para que el mensaje que aparezca dure mucho tiempo (4 segundos)
+    /*El elemento toast va a hacer que el mensaje aparezca hasta abajo, como si fuera un alarm en javascript, que tiene una
+    posicion establecida y siempre aparecerá ahi*/
+  }
+
+
+}
+
+// En cuanto al archivo de xml
+<?xml version='1.0' encoding='utf-8' ?>
+<LinearLayout
+    xmlns:android="http://schemas.abdroid.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"> //Para definir un arreglo horizontal o vertical
+    <TextView
+      android:layout_width = "match_parent"
+      andorid:layout_height="wrap_content"
+      android:text="hola mundo"
+      android:text="@string/titulo"
+      android:textSize = "20 dp" //Density pixel
+      android:textStyle="bold"
+      android:textStyle="Bold"
+    />//Para poder ver como pondremos elementos en pantalla
+    <Button
+      android:layout_width="wrap_content"
+      android:layout_heighth="wrap_content"
+      android:layout_gravity="center_horizontal" /*Para centrar el texto*/
+      android:text="@string/boton"//Aqui mando a llamar el contenido de ese string que yace en los resources
+      andorid:onClick="mensaje" //mensaje es un método del cual se mandará a llamar al hacer click
+    />
+<LinearLayout/>
+
+
+//JAVA DE CEBALLOS LIBRO 
+
+
+
+//Dentro de carpeta strings, aqui tengo que colocar los strings
+<resources>
+  <!--General--> //Esto es un comentario
+  <string name="app_name">EjemploCM</string>
+  <!--Main Activity--> //Comentario que dice que lo que sigue estará en la actividad principal
+  <string name="titulo">Hola mundo!</string>
+  <string name="boton">Dame Click! )  :)</string>
+</resources>
